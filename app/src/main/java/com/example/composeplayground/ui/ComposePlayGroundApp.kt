@@ -1,6 +1,5 @@
 package com.example.composeplayground.ui
 
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -16,6 +15,10 @@ fun ComposePlayGroundApp() {
         }
 
         navigationActions.navigateToHome
+
+        ComposePlayGroundNavGraph(
+            navController = navController
+        )
 
         HomeScreen(
             navigateToUserList = navigationActions.navigateToUserList

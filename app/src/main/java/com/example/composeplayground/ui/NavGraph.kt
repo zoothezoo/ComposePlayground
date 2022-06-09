@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.composeplayground.ui.home.HomeRoute
+import com.example.composeplayground.ui.userList.UserListRoute
 
 @Composable
 internal fun ComposePlayGroundNavGraph(
@@ -24,6 +25,12 @@ internal fun ComposePlayGroundNavGraph(
     ) {
         composable(ComposePlayGroundDestinations.HomeRoute.routeId) {
             HomeRoute()
+        }
+        composable(ComposePlayGroundDestinations.UserListRoute.routeId) {
+            UserListRoute()
+        }
+        composable(ComposePlayGroundDestinations.SnackBarRoute.routeId) {
+            UserListRoute()
         }
     }
 }
