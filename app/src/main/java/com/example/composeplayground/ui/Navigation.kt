@@ -3,15 +3,29 @@ package com.example.composeplayground.ui
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 
-object ComposePlayGroundDestinations {
-    const val HOME_ROUTE = "home"
-    const val USER_LIST_ROUTE = "user_list"
-    const val SNACK_BAR_ROUTE = "snack_bar"
+internal sealed interface ComposePlayGroundDestinations {
+    val routeId: String
+    val screenTitle: String
+
+    object HomeRoute : ComposePlayGroundDestinations {
+        override val routeId = "home"
+        override val screenTitle = "ホーム画面"
+    }
+
+    object UserListRoute : ComposePlayGroundDestinations {
+        override val routeId = "user_list"
+        override val screenTitle = "ユーザリスト画面"
+    }
+
+    object SnackBarRoute : ComposePlayGroundDestinations {
+        override val routeId = "snack_bar"
+        override val screenTitle = "スナックバー画面"
+    }
 }
 
 internal class ComposePlayGroundActions(navController: NavHostController) {
     val navigateToHome: () -> Unit = {
-        navController.navigate(ComposePlayGroundDestinations.HOME_ROUTE) {
+        navController.navigate(ComposePlayGroundDestinations.HomeRoute.routeId) {
             popUpTo(navController.graph.findStartDestination().id) { saveState = true }
             launchSingleTop = true
             restoreState = true
@@ -19,7 +33,7 @@ internal class ComposePlayGroundActions(navController: NavHostController) {
     }
 
     val navigateToUserList: () -> Unit = {
-        navController.navigate(ComposePlayGroundDestinations.USER_LIST_ROUTE) {
+        navController.navigate(ComposePlayGroundDestinations.UserListRoute.routeId) {
             // Pop up to the start destination of the graph to
             // avoid building up a large stack of destinations
             // on the back stack as users select items
@@ -35,7 +49,7 @@ internal class ComposePlayGroundActions(navController: NavHostController) {
     }
 
     val navigateToSnackBar: () -> Unit = {
-        navController.navigate(ComposePlayGroundDestinations.SNACK_BAR_ROUTE) {
+        navController.navigate(ComposePlayGroundDestinations.SnackBarRoute.routeId) {
             popUpTo(navController.graph.findStartDestination().id) { saveState = true }
             launchSingleTop = true
             restoreState = true
