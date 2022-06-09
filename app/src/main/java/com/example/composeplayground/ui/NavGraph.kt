@@ -11,18 +11,18 @@ import com.example.composeplayground.ui.home.HomeRoute
 @Composable
 internal fun ComposePlayGroundNavGraph(
     // appContainer: AppContainer,
-    isExpandedScreen: Boolean,
+    // isExpandedScreen: Boolean,
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    openDrawer: () -> Unit = {},
-    startDestination: String = ComposePlayGroundDestinations.HOME_ROUTE
+    // openDrawer: () -> Unit = {},
+    startDestination: String = ComposePlayGroundDestinations.HomeRoute.routeId
 ) {
     NavHost(
         navController = navController,
         startDestination = startDestination,
         modifier = modifier
     ) {
-        composable(ComposePlayGroundDestinations.HOME_ROUTE) {
+        composable(ComposePlayGroundDestinations.HomeRoute.routeId) {
             HomeRoute()
         }
     }
