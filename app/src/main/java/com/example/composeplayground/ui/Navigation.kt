@@ -21,6 +21,11 @@ internal sealed interface ComposePlayGroundDestinations {
         override val routeId = "snack_bar"
         override val screenTitle = "スナックバー画面"
     }
+
+    object LikeAnimationRoute : ComposePlayGroundDestinations {
+        override val routeId = "like_animatoin"
+        override val screenTitle = "いいねアニメーション画面"
+    }
 }
 
 internal class ComposePlayGroundActions(navController: NavHostController) {
@@ -50,6 +55,14 @@ internal class ComposePlayGroundActions(navController: NavHostController) {
 
     val navigateToSnackBar: () -> Unit = {
         navController.navigate(ComposePlayGroundDestinations.SnackBarRoute.routeId) {
+            popUpTo(navController.graph.findStartDestination().id) { saveState = true }
+            launchSingleTop = true
+            restoreState = true
+        }
+    }
+
+    val navigateToLikeAnimation: () -> Unit = {
+        navController.navigate(ComposePlayGroundDestinations.LikeAnimationRoute.routeId) {
             popUpTo(navController.graph.findStartDestination().id) { saveState = true }
             launchSingleTop = true
             restoreState = true

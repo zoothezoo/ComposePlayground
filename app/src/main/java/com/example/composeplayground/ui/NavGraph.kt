@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.composeplayground.ui.home.HomeRoute
+import com.example.composeplayground.ui.likeAnimation.LikeAnimationRoute
 import com.example.composeplayground.ui.userList.UserListRoute
 
 @Composable
@@ -23,14 +24,9 @@ internal fun ComposePlayGroundNavGraph(
         startDestination = startDestination,
         modifier = modifier
     ) {
-        composable(ComposePlayGroundDestinations.HomeRoute.routeId) {
-            HomeRoute()
-        }
-        composable(ComposePlayGroundDestinations.UserListRoute.routeId) {
-            UserListRoute()
-        }
-        composable(ComposePlayGroundDestinations.SnackBarRoute.routeId) {
-            UserListRoute()
-        }
+        composable(ComposePlayGroundDestinations.HomeRoute.routeId) { HomeRoute() }
+        composable(ComposePlayGroundDestinations.UserListRoute.routeId) { UserListRoute() }
+        composable(ComposePlayGroundDestinations.SnackBarRoute.routeId) { /* noop */ }
+        composable(ComposePlayGroundDestinations.LikeAnimationRoute.routeId) { LikeAnimationRoute() }
     }
 }

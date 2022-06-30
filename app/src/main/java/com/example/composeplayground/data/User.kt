@@ -1,7 +1,7 @@
 package com.example.composeplayground.data
 
 import androidx.annotation.DrawableRes
-import com.google.android.material.R
+import com.example.composeplayground.R
 
 data class User(
     val name: String,
@@ -14,25 +14,25 @@ data class User(
             User(
                 name = "taro",
                 age = 21,
-                image = R.drawable.ic_clock_black_24dp,
+                image = R.drawable.emma,
                 isLiked = true
             ),
             User(
                 name = "jiro",
                 age = 22,
-                image = R.drawable.ic_clock_black_24dp,
+                image = R.drawable.emma,
                 isLiked = true
             ),
             User(
                 name = "saburo",
                 age = 22,
-                image = R.drawable.ic_clock_black_24dp,
+                image = R.drawable.emma,
                 isLiked = true
             ),
             User(
                 name = "shiro",
                 age = 22,
-                image = R.drawable.ic_clock_black_24dp,
+                image = R.drawable.emma,
                 isLiked = true
             )
         )
