@@ -32,24 +32,18 @@ internal class ComposePlayGroundActions(navController: NavHostController) {
     val navigateToHome: () -> Unit = {
         navController.navigate(ComposePlayGroundDestinations.HomeRoute.routeId) {
             popUpTo(navController.graph.findStartDestination().id) { saveState = true }
-            launchSingleTop = true
-            restoreState = true
+            // launchSingleTop = true
+            // restoreState = true
         }
     }
 
     val navigateToUserList: () -> Unit = {
         navController.navigate(ComposePlayGroundDestinations.UserListRoute.routeId) {
-            // Pop up to the start destination of the graph to
-            // avoid building up a large stack of destinations
-            // on the back stack as users select items
-            popUpTo(navController.graph.findStartDestination().id) {
-                saveState = true
-            }
-            // Avoid multiple copies of the same destination when
-            // reselecting the same item
+            popUpTo(navController.graph.findStartDestination().id) { saveState = true }
+/*
             launchSingleTop = true
-            // Restore state when reselecting a previously selected item
             restoreState = true
+*/
         }
     }
 
@@ -64,8 +58,10 @@ internal class ComposePlayGroundActions(navController: NavHostController) {
     val navigateToLikeAnimation: () -> Unit = {
         navController.navigate(ComposePlayGroundDestinations.LikeAnimationRoute.routeId) {
             popUpTo(navController.graph.findStartDestination().id) { saveState = true }
+/*
             launchSingleTop = true
             restoreState = true
+*/
         }
     }
 }

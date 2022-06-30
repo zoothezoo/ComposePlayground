@@ -126,7 +126,7 @@ private fun UserInfoRow(
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun PreviewUserInfoRow() {
     UserListScreen()
